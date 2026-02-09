@@ -2,7 +2,7 @@
 
 AgroConnect is a MERN stack web application designed to bridge the gap between Farmers, Restaurants, and Delivery Drivers. It streamlines the agricultural supply chain by allowing farmers to sell produce directly to restaurants, without middlemen, while drivers manage the logistics.
 
-![AgroConnect Banner](https://via.placeholder.com/1200x500/16a34a/ffffff?text=AgroConnect+Platform)
+![AgroConnect Banner](https://github.com/Cveerababu15/AgroConnect/blob/main/AgroConnect.png)
 
 ## 🚀 Features
 
