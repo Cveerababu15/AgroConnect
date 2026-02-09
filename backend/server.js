@@ -12,10 +12,7 @@ app.use(express.json())
 app.use("/", (req, res) => {
     res.send("AgroConnect Backend is Running Successfully!")
 })
-app.use(cors({
-    origin: ["https://agro-connect-dr5e.vercel.app", "https://agro-connect-ten.vercel.app", "http://localhost:5173"],
-    credentials: true
-}));
+app.use(cors());
 
 
 app.use("/api/auth", authRoutes)
