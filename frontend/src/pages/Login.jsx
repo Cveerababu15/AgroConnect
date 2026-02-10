@@ -12,8 +12,8 @@ export default function Login() {
 
   // Redirect if already logged in
   useEffect(() => {
-    const token = sessionStorage.getItem("token");
-    let role = sessionStorage.getItem("role");
+    const token = localStorage.getItem("token");
+    let role = localStorage.getItem("role");
 
     if (token && role) {
       role = role.toLowerCase();
@@ -21,7 +21,7 @@ export default function Login() {
       else if (role === "restaurant") navigate("/restaurant");
       else if (role === "driver") navigate("/driver");
       else {
-        sessionStorage.clear();
+        localStorage.clear();
         navigate("/login");
       }
     }
@@ -40,14 +40,14 @@ export default function Login() {
 
       if (res.token) {
         // Clear any existing session data first
-        sessionStorage.clear();
+        localStorage.clear();
 
-        sessionStorage.setItem("token", res.token);
+        localStorage.setItem("token", res.token);
 
         // Decode role from JWT payload
         const payload = JSON.parse(atob(res.token.split(".")[1]));
         const role = payload.role.toLowerCase();
-        sessionStorage.setItem("role", role);
+        localStorage.setItem("role", role);
 
         toast.success(`Welcome back! Logged in as ${role}`);
 
@@ -55,7 +55,7 @@ export default function Login() {
         else if (role === "restaurant") navigate("/restaurant");
         else if (role === "driver") navigate("/driver");
         else {
-          sessionStorage.clear();
+          localStorage.clear();
           toast.error("Invalid role detected. Please contact support.");
         }
       } else {

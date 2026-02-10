@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 import { FaUtensils, FaShoppingCart, FaHistory, FaUser, FaLeaf, FaRupeeSign, FaWeightHanging, FaArrowRight } from "react-icons/fa";
 
 export default function RestaurantDashboard() {
-  const token = sessionStorage.getItem("token");
+  const token = localStorage.getItem("token");
 
   const [products, setProducts] = useState([]);
   const [orders, setOrders] = useState([]);
@@ -20,8 +20,8 @@ export default function RestaurantDashboard() {
     loadData();
   }, []);
 
-  const loadData = async () => {
-    setLoading(true);
+  const loadData = async (isBackground = false) => {
+    if (!isBackground) setLoading(true);
     try {
       const p = await getAvailableProducts(token);
       const o = await getMyOrders(token);
@@ -30,7 +30,7 @@ export default function RestaurantDashboard() {
     } catch (error) {
       toast.error("Failed to load dashboard data");
     } finally {
-      setLoading(false);
+      if (!isBackground) setLoading(false);
     }
   };
 
@@ -60,7 +60,7 @@ export default function RestaurantDashboard() {
       if (res.order) {
         toast.success(`Successfully ordered ${qty}kg of ${product.name}`);
         setQuantity({ ...quantity, [productId]: "" });
-        loadData();
+        loadData(true);
       } else {
         toast.error(res.message || "Failed to place order");
       }

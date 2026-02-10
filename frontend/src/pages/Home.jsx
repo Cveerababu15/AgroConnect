@@ -45,7 +45,7 @@ export default function Home() {
               </p>
 
               <div className="flex flex-col sm:flex-row justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
-                {!sessionStorage.getItem("token") ? (
+                {!localStorage.getItem("token") ? (
                   <>
                     <Link
                       to="/signup"
@@ -63,7 +63,7 @@ export default function Home() {
                   </>
                 ) : (
                   <Link
-                    to={`/${sessionStorage.getItem("role") || "login"}`}
+                    to={`/${localStorage.getItem("role") || "login"}`}
                     className="bg-green-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-green-700 shadow-xl shadow-green-100 transition-all flex items-center justify-center space-x-2 group"
                   >
                     <span>Go to My Dashboard</span>

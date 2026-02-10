@@ -10,7 +10,7 @@ import { toast } from "react-toastify";
 import { FaPlus, FaCheck, FaTimes, FaBoxOpen, FaClipboardList, FaLeaf, FaRupeeSign, FaWeightHanging } from "react-icons/fa";
 
 export default function FarmerDashboard() {
-  const token = sessionStorage.getItem("token");
+  const token = localStorage.getItem("token");
 
   const [products, setProducts] = useState([]);
   const [orders, setOrders] = useState([]);

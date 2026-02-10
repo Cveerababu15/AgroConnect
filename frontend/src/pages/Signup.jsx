@@ -16,8 +16,8 @@ export default function Signup() {
 
   // Redirect if already logged in
   useEffect(() => {
-    const token = sessionStorage.getItem("token");
-    const role = sessionStorage.getItem("role");
+    const token = localStorage.getItem("token");
+    const role = localStorage.getItem("role");
     if (token && role) {
       if (role === "farmer") navigate("/farmer");
       else if (role === "restaurant") navigate("/restaurant");
