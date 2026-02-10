@@ -33,6 +33,9 @@ export default function Login() {
       const res = await login({ email, password });
 
       if (res.token) {
+        // Clear any existing session data first
+        localStorage.clear();
+
         localStorage.setItem("token", res.token);
 
         // Decode role from JWT payload
