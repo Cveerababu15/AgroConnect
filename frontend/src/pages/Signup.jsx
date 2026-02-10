@@ -42,7 +42,8 @@ export default function Signup() {
         toast.error(res.message || "Signup failed");
       }
     } catch (error) {
-      toast.error("An error occurred during signup");
+      console.error("Signup Error:", error);
+      toast.error("An error occurred during signup. Check console for details.");
     } finally {
       setLoading(false);
     }
