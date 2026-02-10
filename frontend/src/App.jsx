@@ -13,7 +13,8 @@ import RoleRoute from "./components/RoleRoute";
 import FarmerDashboard from "./pages/farmer/FarmerDashboard";
 import RestaurantDashboard from "./pages/restaurant/RestaurantDashboard";
 import DriverDashboard from "./pages/driver/DriverDashboard";
-function App() {
+const App = () => {
+  console.log("Current API URL:", import.meta.env.VITE_API_URL || "Defaulting to localhost");
   return (
     <BrowserRouter>
       <div className="flex flex-col min-h-screen bg-gray-50">
