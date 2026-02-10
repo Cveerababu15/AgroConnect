@@ -55,8 +55,8 @@ export default function Navbar() {
                 <Link
                   to="/signup"
                   className={`flex items-center space-x-1 px-4 py-2 rounded-full text-sm font-medium transition-all ${isActive("/signup")
-                      ? "bg-green-600 text-white shadow-lg shadow-green-200"
-                      : "bg-green-600 text-white hover:bg-green-700 shadow-md hover:shadow-lg shadow-green-100"
+                    ? "bg-green-600 text-white shadow-lg shadow-green-200"
+                    : "bg-green-600 text-white hover:bg-green-700 shadow-md hover:shadow-lg shadow-green-100"
                     }`}
                 >
                   <FaUserPlus />
