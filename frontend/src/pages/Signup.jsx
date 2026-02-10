@@ -60,7 +60,7 @@ export default function Signup() {
             <p className="text-green-100 mt-2">Join AgroConnect and start growing</p>
           </div>
 
-          <form onSubmit={handleSubmit} className="p-8 space-y-4">
+          <form onSubmit={handleSignup} className="p-8 space-y-4">
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
