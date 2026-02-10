@@ -40,12 +40,13 @@ export default function Login() {
 
         // Decode role from JWT payload
         const payload = JSON.parse(atob(res.token.split(".")[1]));
-        localStorage.setItem("role", payload.role);
+        const role = payload.role.toLowerCase();
+        localStorage.setItem("role", role);
 
-        toast.success(`Welcome back! Logged in as ${payload.role}`);
+        toast.success(`Welcome back! Logged in as ${role}`);
 
-        if (payload.role === "farmer") navigate("/farmer");
-        else if (payload.role === "restaurant") navigate("/restaurant");
+        if (role === "farmer") navigate("/farmer");
+        else if (role === "restaurant") navigate("/restaurant");
         else navigate("/driver");
       } else {
         toast.error(res.message || "Login failed");
