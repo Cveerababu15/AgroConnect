@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 import { FaUtensils, FaShoppingCart, FaHistory, FaUser, FaLeaf, FaRupeeSign, FaWeightHanging, FaArrowRight } from "react-icons/fa";
 
 export default function RestaurantDashboard() {
-  const token = localStorage.getItem("token");
+  const token = sessionStorage.getItem("token");
 
   const [products, setProducts] = useState([]);
   const [orders, setOrders] = useState([]);

@@ -5,13 +5,13 @@ import { useState } from "react";
 export default function Navbar() {
   const navigate = useNavigate();
   const location = useLocation();
-  const role = localStorage.getItem("role");
-  const token = localStorage.getItem("token");
+  const role = sessionStorage.getItem("role");
+  const token = sessionStorage.getItem("token");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleLogout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("role");
+    sessionStorage.removeItem("token");
+    sessionStorage.removeItem("role");
     navigate("/login");
     setIsMenuOpen(false);
   };

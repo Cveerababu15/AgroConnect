@@ -9,7 +9,7 @@ import { toast } from "react-toastify";
 import { FaTruck, FaBox, FaMapMarkerAlt, FaCheckCircle, FaClipboardList, FaArrowRight, FaUserAlt } from "react-icons/fa";
 
 export default function DriverDashboard() {
-  const token = localStorage.getItem("token");
+  const token = sessionStorage.getItem("token");
 
   const [deliveries, setDeliveries] = useState([]);
   const [myDelivery, setMyDelivery] = useState(null);
