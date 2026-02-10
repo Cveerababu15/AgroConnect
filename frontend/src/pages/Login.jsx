@@ -19,7 +19,11 @@ export default function Login() {
       role = role.toLowerCase();
       if (role === "farmer") navigate("/farmer");
       else if (role === "restaurant") navigate("/restaurant");
-      else navigate("/driver");
+      else if (role === "driver") navigate("/driver");
+      else {
+        localStorage.clear();
+        navigate("/login");
+      }
     }
   }, [navigate]);
 
@@ -49,7 +53,11 @@ export default function Login() {
 
         if (role === "farmer") navigate("/farmer");
         else if (role === "restaurant") navigate("/restaurant");
-        else navigate("/driver");
+        else if (role === "driver") navigate("/driver");
+        else {
+          localStorage.clear();
+          toast.error("Invalid role detected. Please contact support.");
+        }
       } else {
         toast.error(res.message || "Login failed");
       }
