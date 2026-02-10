@@ -13,11 +13,13 @@ export default function Login() {
   // Redirect if already logged in
   useEffect(() => {
     const token = localStorage.getItem("token");
-    const role = localStorage.getItem("role");
+    let role = localStorage.getItem("role");
+
     if (token && role) {
+      role = role.toLowerCase();
       if (role === "farmer") navigate("/farmer");
       else if (role === "restaurant") navigate("/restaurant");
-      else if (role === "driver") navigate("/driver");
+      else navigate("/driver");
     }
   }, [navigate]);
 
